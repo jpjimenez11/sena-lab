@@ -6,9 +6,9 @@ $password = 'sena';
 $database = 'php_login_database';
 
 try {
-  $conn = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
-} catch (PDOException $e) {
-  die('Connection Failed: ' . $e->getMessage());
+  $conn = mysqli_init();
+  mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL);
+  mysqli_real_connect($conn, "sena-mysql.mysql.database.azure.com", "sena", "Lab2023*", $database, 3306, MYSQLI_CLIENT_SSL);
 }
 
 ?>
